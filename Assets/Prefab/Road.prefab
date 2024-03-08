@@ -98,4 +98,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartPosition: {x: 0, y: 0}
-  barSpiteRenderer: {fileID: 8406938850957553929}
+  barSpriteRenderer: {fileID: 8406938850957553929}

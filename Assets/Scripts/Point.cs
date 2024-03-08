@@ -7,7 +7,17 @@ using UnityEngine;
 public class Point : MonoBehaviour
 {
     public bool Runtime = true;
+    public Vector2 PointID;
     public List<Bar> ConnectedBars;
+
+    public void Start()
+    {
+        if(Runtime == false)
+        {
+            PointID = transform.position;
+            if(GameManager.AllPoints.ContainsKey(PointID) == false) GameManager.AllPoints.Add(PointID, this);
+        }
+    }
 
     void Update()
     {
