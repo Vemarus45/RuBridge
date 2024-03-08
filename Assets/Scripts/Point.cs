@@ -7,13 +7,14 @@ using UnityEngine;
 public class Point : MonoBehaviour
 {
     public bool Runtime = true;
+    public List<Bar> ConnectedBars;
 
     void Update()
     {
         if (transform.hasChanged == true)
         {
             transform.hasChanged = false;
-            CryptoAPITransform.position = Vector3Int.RoundToInt(transform.position);
+            transform.position = Vector3Int.RoundToInt(transform.position);
         }
     }
 }
