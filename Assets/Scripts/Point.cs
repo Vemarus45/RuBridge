@@ -7,6 +7,7 @@ using UnityEngine;
 public class Point : MonoBehaviour
 {
     public bool Runtime = true;
+    public Rigidbody2D rbd;
     public Vector2 PointID;
     public List<Bar> ConnectedBars;
 
@@ -14,6 +15,7 @@ public class Point : MonoBehaviour
     {
         if(Runtime == false)
         {
+            rbd.bodyType = RigidbodyType2D.Static;
             PointID = transform.position;
             if(GameManager.AllPoints.ContainsKey(PointID) == false) GameManager.AllPoints.Add(PointID, this);
         }

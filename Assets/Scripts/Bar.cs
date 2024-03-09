@@ -8,6 +8,10 @@ public class Bar : MonoBehaviour
 {
     public Vector2 StartPosition;
     public SpriteRenderer barSpriteRenderer;
+    public float MaxLength;
+    public BoxCollider2D boxCollider;
+    public HingeJoint2D StartJoint;
+    public HingeJoint2D EndJoint;
 
     public void UpdatedCreatingBar(Vector2 ToPosition)
     {
@@ -19,5 +23,7 @@ public class Bar : MonoBehaviour
 
         float Length = dir.magnitude;
         barSpriteRenderer.size = new Vector2(Length, barSpriteRenderer.size.y);
+
+        boxCollider.size = barSpriteRenderer.size;
     }
 }

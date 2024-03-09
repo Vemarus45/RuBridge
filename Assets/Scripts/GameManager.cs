@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public Dictionary<Vector2, Point> AllPoints = new Dictionary<Vector2, Point>();
+    public static Dictionary<Vector2, Point> AllPoints = new Dictionary<Vector2, Point>();
 
     private void Awake()
     {

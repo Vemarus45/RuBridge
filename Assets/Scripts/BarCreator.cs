@@ -62,6 +62,11 @@ public class BarCreator : MonoBehaviour, IPointerDownHandler
             GameManager.AllPoints.Add(CurrentEndPoint.transform.position, CurrentEndPoint);
         }
 
+        CurrentBar.StartJoint.connectedBody = CurrentStartPoint.rbd;
+        CurrentBar.StartJoint.anchor = CurrentBar.transform.InverseTransformPoint(CurrentBar.StartPosition);
+        CurrentBar.EndJoint.connectedBody = CurrentEndPoint.rbd;
+        CurrentBar.EndJoint.anchor = CurrentBar.transform.InverseTransformPoint(CurrentEndPoint.transform.position);
+
         CurrentStartPoint.ConnectedBars.Add(CurrentBar);
         CurrentEndPoint.ConnectedBars.Add(CurrentBar);
         StartBarCreation(CurrentEndPoint.transform.position);
@@ -71,14 +76,18 @@ public class BarCreator : MonoBehaviour, IPointerDownHandler
     {
         Destroy(CurrentBar.gameObject);
         if(CurrentStartPoint.ConnectedBars.Count == 0 && CurrentStartPoint.Runtime == true) Destroy(CurrentStartPoint.gameObject);
-        if (CurrentStartPoint.ConnectedBars.Count == 0 && CurrentEndPoint.Runtime == true) Destroy(CurrentEndPoint.gameObject);
+        if (CurrentEndPoint.ConnectedBars.Count == 0 && CurrentEndPoint.Runtime == true) Destroy(CurrentEndPoint.gameObject);
     }
 
     private void Update()
     {
         if(BarCreationStarted == true)
         {
-            CurrentEndPoint.transform.position = (Vector2) Vector2Int.RoundToInt(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            Vector2 EndPosition = (Vector2)Vector2Int.RoundToInt(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            Vector2 Dir = EndPosition - CurrentBar.StartPosition;
+            Vector2 ClampedPosition = CurrentBar.StartPosition + Vector2.ClampMagnitude(Dir, CurrentBar.MaxLength);
+
+            CurrentEndPoint.transform.position = (Vector2) Vector2Int.FloorToInt(ClampedPosition);
             CurrentEndPoint.PointID = CurrentEndPoint.transform.position;
             CurrentBar.UpdatedCreatingBar(CurrentEndPoint.transform.position);
         }
