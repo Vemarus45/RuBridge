@@ -759,6 +759,10 @@ PrefabInstance:
       propertyPath: Runtime
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6778696546983438586, guid: 36c65263c1d5ef94f986562a64f6e9da, type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7867903392103313167, guid: 36c65263c1d5ef94f986562a64f6e9da, type: 3}
       propertyPath: m_Name
       value: Point (1)
@@ -863,6 +867,10 @@ PrefabInstance:
     - target: {fileID: 5433072296551902810, guid: 36c65263c1d5ef94f986562a64f6e9da, type: 3}
       propertyPath: Runtime
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778696546983438586, guid: 36c65263c1d5ef94f986562a64f6e9da, type: 3}
+      propertyPath: m_BodyType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7867903392103313167, guid: 36c65263c1d5ef94f986562a64f6e9da, type: 3}
       propertyPath: m_Name

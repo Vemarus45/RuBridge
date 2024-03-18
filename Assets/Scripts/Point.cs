@@ -23,10 +23,13 @@ public class Point : MonoBehaviour
 
     void Update()
     {
-        if (transform.hasChanged == true)
+        if (Runtime == false)
         {
-            transform.hasChanged = false;
-            transform.position = Vector3Int.RoundToInt(transform.position);
+            if (transform.hasChanged == true)
+            {
+                transform.hasChanged = false;
+                transform.position = Vector3Int.RoundToInt(transform.position);
+            }
         }
     }
 }

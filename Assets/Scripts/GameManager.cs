@@ -9,5 +9,12 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         AllPoints.Clear();
+        Time.timeScale = 0;
+    }
+
+    [ContextMenu("Test GamePlay")]
+    public void Play()
+    {
+        Time.timeScale = 1;
     }
 }
